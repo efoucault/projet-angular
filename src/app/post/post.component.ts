@@ -10,7 +10,7 @@ export class PostComponent implements OnInit {
   @Input() postTitle: string;
   @Input() postContent: string;
   @Input() postLike: number;
-  @Input() postCreatedAt: date;
+  @Input() postCreatedAt: number;
 
   constructor() { }
 

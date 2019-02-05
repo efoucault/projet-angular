@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {NgForm} from '@angular/forms';
+import {PostService} from '../../app/services/post.service';
+import { RouterModule, Routes } from '@angular/router';
 
 @Component({
   selector: 'app-edit-post',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditPostComponent implements OnInit {
 
-  constructor() { }
+  constructor(private postService: PostService) { }
 
   ngOnInit() {
+  }
+
+  onSubmit(form: NgForm) {
+    const title = form.value['title'];
+    const content = form.value['content'];
+    this.postService.addPost(title, content);
   }
 
 }

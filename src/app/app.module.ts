@@ -8,10 +8,12 @@ import { FormsModule } from '@angular/forms';
 import { EditPostComponent } from './edit-post/edit-post.component';
 import { AuthComponent } from './auth/auth.component';
 import { PostViewComponent } from './post-view/post-view.component';
-import { RouterModule, Routes } from '@angular/router'
+import { RouterModule, Routes } from '@angular/router';
+import { PostService} from "./services/post.service"
 
 const appRoutes: Routes = [
   { path: 'posts', component: PostViewComponent },
+  { path: 'edit', component: EditPostComponent },
   { path: 'auth', component: AuthComponent },
   { path: '', component: PostViewComponent }
 ];
@@ -22,14 +24,17 @@ const appRoutes: Routes = [
     PostComponent,
     EditPostComponent,
     AuthComponent,
-    PostViewComponent
+    PostViewComponent 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    PostService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

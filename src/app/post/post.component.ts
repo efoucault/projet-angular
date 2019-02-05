@@ -6,7 +6,6 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./post.component.scss']
 })
 export class PostComponent implements OnInit {
-  
   @Input() postTitle: string;
   @Input() postContent: string;
   @Input() postLike: number;

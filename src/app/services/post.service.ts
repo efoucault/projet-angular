@@ -1,18 +1,21 @@
 export class PostService {
   posts = [
     {
+      id: 1,
       title: "Post 1",
 	  content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
 	  loveIts: 0,
 	  created_at: "2019/01/22"
     },
     {
+	  id: 2,
 	  title: "Post 2",
 	  content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
 	  loveIts: 5,
 	  created_at: "2019/01/22"
 	},
     {
+      id: 3,
       title: "Post 3",
       content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
 	  loveIts: -2,
@@ -25,7 +28,8 @@ export class PostService {
       id: 0,
       title: '',
       content: '',
-      loveIts: 0
+      loveIts: 0,
+      created_at: "2019/01/22"
     };
     postObject.title = title;
     postObject.content = content;

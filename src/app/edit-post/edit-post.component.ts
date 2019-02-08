@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {PostService} from '../../app/services/post.service';
-import { RouterModule, Routes } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-post',
@@ -10,7 +10,8 @@ import { RouterModule, Routes } from '@angular/router';
 })
 export class EditPostComponent implements OnInit {
 
-  constructor(private postService: PostService) { }
+  constructor(private postService: PostService,
+  			  private router: Router) { }
 
   ngOnInit() {
   }
@@ -19,6 +20,7 @@ export class EditPostComponent implements OnInit {
     const title = form.value['title'];
     const content = form.value['content'];
     this.postService.addPost(title, content);
+    this.router.navigate(['/posts']);
   }
 
 }

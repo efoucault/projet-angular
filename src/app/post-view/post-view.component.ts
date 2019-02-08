@@ -15,5 +15,11 @@ export class PostViewComponent implements OnInit {
   ngOnInit() {
     this.posts = this.postService.posts;
   }
+  onSave() {
+    this.postService.savePosts();
+  }
+  onFetch() {
+    this.postService.fetchPosts();
+  }
   
 }

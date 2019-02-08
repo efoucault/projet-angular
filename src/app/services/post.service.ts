@@ -1,3 +1,8 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+@Injectable()
+
 export class PostService {
   posts = [
     {
@@ -23,6 +28,8 @@ export class PostService {
     }
   ];
 
+  constructor(private httpClient: HttpClient) {}
+
   addPost(title: string, content: string) {
     const postObject = {
       id: 0,
@@ -35,5 +42,31 @@ export class PostService {
     postObject.content = content;
     postObject.id = this.posts[(this.posts.length - 1)].id + 1;
     this.posts.push(postObject);
+  }
+
+  savePosts() {
+    this.httpClient
+      .put('https://angular-un.firebaseio.com/posts.json', this.posts)
+      .subscribe(
+        () => {
+          console.log('Enregistrement terminé !');
+        },
+        (error) => {
+          console.log('Erreur ! : ' + error);
+        }
+      );
+  }
+
+  fetchPosts() {
+    this.httpClient
+      .get<any[]>('https://angular-un.firebaseio.com/posts.json')
+      .subscribe(
+        (response) => {
+          this.posts = response;
+        },
+        (error) => {
+          console.log('Erreur ! : ' + error);
+        }
+      );  
   }
 }

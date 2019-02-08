@@ -9,7 +9,8 @@ import { EditPostComponent } from './edit-post/edit-post.component';
 import { AuthComponent } from './auth/auth.component';
 import { PostViewComponent } from './post-view/post-view.component';
 import { RouterModule, Routes } from '@angular/router';
-import { PostService} from "./services/post.service"
+import { PostService} from "./services/post.service";
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
   { path: 'posts', component: PostViewComponent },
@@ -30,7 +31,8 @@ const appRoutes: Routes = [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(appRoutes),
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
     PostService
